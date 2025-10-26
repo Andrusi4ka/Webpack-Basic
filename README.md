@@ -1,10 +1,10 @@
 # Webpack Basic
 
-![Webpack](./images/Webpack.png)
+![Webpack](./src/images/Webpack.png)
 
 **Відео:** 23.10.2025
 
-[![youtube](./images/YouTube.png)](https://youtu.be/1C_wyTtBwl4?si=wEUWenLbNp8A2cqV)
+[![youtube](./src/images/YouTube.png)](https://youtu.be/1C_wyTtBwl4?si=wEUWenLbNp8A2cqV)
 
 
 **Pесурси:**
@@ -25,7 +25,7 @@
 
 **Як Webpack працює з активами проекту?**
 
-![bundle](./images/bundle.png)
+![bundle](./src/images/bundle.png)
 
 На зображенні демонструється процес роботи Webpack: він бере різноманітні типи файлів та модулів з їх залежностями (JavaScript, SASS, зображення тощо), створює з них граф залежностей, а потім "упаковує" ці ресурси в оптимізовані статичні активи (JavaScript, CSS, зображення), які легко інтегрувати в веб-додатки.
 
