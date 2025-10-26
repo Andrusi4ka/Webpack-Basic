@@ -17,7 +17,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: path.resolve(__dirname, './README.md'), to: 'README.md'},
+        { from: path.resolve(__dirname, 'src/README.md'), to: 'README.md'},
         { from: path.resolve(__dirname, 'src/images'), to: 'images' },
       ],
     }),
