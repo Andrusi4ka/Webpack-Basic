@@ -99,7 +99,7 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)$/i,                       // Зображення
         type: 'asset',                                         // Визначає: inline чи файл, залежно від розміру
-        parser: { dataUrlCondition: { maxSize: 8 * 1024 } },   // Inline (base64) якщо < 8KB, інакше окремий файл
+        parser: { dataUrlCondition: { maxSize: 8 * 1024 } },   // Inline (base64) якщо меньше 8KB, інакше окремий файл
       },
       {
         test: /\.html$/i,                                      // HTML файли

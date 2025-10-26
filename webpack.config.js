@@ -17,7 +17,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: path.resolve(__dirname, 'src/README.md'), to: 'README.md'},
+        { from: path.resolve(__dirname, 'src/README.md'), to: 'README.md' },
         { from: path.resolve(__dirname, 'src/images'), to: 'images' },
       ],
     }),
@@ -54,5 +54,10 @@ module.exports = {
         loader: 'html-loader',
       },
     ],
+  },
+  performance: {
+    maxAssetSize: 600 * 1024,      // дозволити до 600 КБ на asset
+    maxEntrypointSize: 600 * 1024, // дозволити до 600 КБ на бандл
+    hints: false                   // або вимкнути попередження повністю
   },
 };
