@@ -1,0 +1,37 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+body {
+  background-color: $main-background;
+  font-family: 'ComicRelief';
+  font-size: 1rem;
+
+  ol {
+    li {
+      list-style-position: inside;
+      list-style-type: decimal;
+      padding-bottom: 1rem;
+      a {
+        text-decoration: underline;
+        color: rgb(15, 0, 232);
+      }
+
+      ol {
+        padding-top: 1rem;
+
+        li {
+          list-style-position: inside;
+          list-style-type: circle;
+
+          &:last-child {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  pre {
+    margin-bottom: 3rem;
+  }
+}

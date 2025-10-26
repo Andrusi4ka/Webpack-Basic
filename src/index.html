@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Getting Started</title>
+
+</head>
+
+<body>
+  <div class="container mx-auto px-3 my-5">
+    <h1 class="text-4xl py-10 text-center">Webpack Basic. Домашня робота</h1>
+    <img src="./images/Webpack.png" alt="Webpack" class="w-1/2 py-5 mx-auto">
+    <div class="text-center"><a href="./README.md" class="bg-blue-600 text-white font-medium py-2 px-4 rounded">README</a></div>
+    <h3 class="text-2xl py-5">Встановлені пакети:</h3>
+    <ol>
+      <li><a href="https://www.npmjs.com/package/webpack" target="_blank">webpack</a> - це головний збирач проєкту, який аналізує всі файли (JavaScript, CSS, зображення, шрифти тощо), визначає залежності між ними та об’єднує все у готову, оптимізовану збірку для браузера.</li>
+      <li><a href="https://www.npmjs.com/package/html-webpack-plugin" target="_blank">html-webpack-plugin</a> - це один із найважливіших плагінів для Webpack:
+        <ol class="pl-10">
+          <li>Створює HTML-файл у папці dist/ (під час збірки).</li>
+          <li>Автоматично додає у нього всі збірки (JS, CSS, картинки), які створив Webpack.</li>
+          <li>Може використовувати готовий HTML-шаблон або згенерувати новий із нуля.</li>
+          <li>Підтримує мінімізацію, динамічні метадані, EJS-шаблонізацію та інше.</li>
+        </ol>
+      </li>
+      <li><a href="https://www.npmjs.com/package/webpack-cli" target="_blank">webpack-cli</a> - це командний інтерфейс, який дозволяє взаємодіяти з Webpack через термінал. Завдяки ньому можна запускати збірку, вибирати режими (development, production), вказувати власні конфігурації та налаштування.
+      </li>
+      <li><a href="https://www.npmjs.com/package/webpack-dev-server" target="_blank">webpack-dev-server</a> - це локальний сервер для розробки, який автоматично відкриває сторінку у браузері, оновлює її при зміні коду (hot reload) і дає можливість миттєво бачити результат без ручного
+        перезавантаження чи повторної збірки.</li>
+      <li><a href="https://webpack.js.org/loaders/css-loader/#root" target="_blank">css-loader</a> - це один із основних лоадерів Webpack, який дозволяє імпортувати CSS-файли всередину JavaScript-модулів. Без нього Webpack просто не розуміє, що робити з .css файлами.</li>
+      <li><a href="https://www.npmjs.com/package/style-loader" target="_blank">style-loader</a> - це один з базових лоадерів для Webpack, який відповідає за вставку CSS-коду у DOM (у браузер) під час виконання. Його зазвичай використовують разом із css-loader, бо css-loader лише "зчитує" CSS, а
+        style-loader "впроваджує" його у сторінку.</li>
+      <li><a href="https://www.npmjs.com/package/sass" target="_blank">sass</a> - це сам компілятор SASS/SCSS, тобто програма, яка перетворює код з .scss або .sass у звичайний .css. Але у Webpack ми зазвичай не компілюємо вручну — для цього є sass-loader.</li>
+      <li><a href="https://www.npmjs.com/package/sass-loader" target="_blank">sass-loader</a> - це Webpack-лоадер, який підключає компілятор sass до процесу збірки. Він бере .scss файл → компілює у CSS → передає результат css-loader.</li>
+      <li><a href="https://www.npmjs.com/package/html-loader" target="_blank">html-loader</a> - це Webpack-лоадер, який дозволяє імпортувати HTML-файли у JavaScript і обробляє всі внутрішні ресурси (зображення, посилання, скрипти тощо). Іншими словами — він навчає Webpack розуміти, що робити з .html
+        файлами. Без нього Webpack просто не знає, як трактувати import './index.html'.</li>
+      <li><a href="https://www.npmjs.com/package/prismjs" target="_blank">PrismJS</a> - це легка бібліотека для підсвічування синтаксису коду (syntax highlighting) у HTML-сторінках. Вона виділяє кольорами ключові слова, змінні, коментарі тощо — щоб код виглядав зрозуміліше й привабливіше.</li>
+      <li><a href="https://www.npmjs.com/package/gitignore" target="_blank">.gitignore</a> - це спеціальний файл у Git, у якому вказується, які файли або папки не потрібно відслідковувати та додавати до репозиторію. Його використовують, щоб не заливати тимчасові файли, кеш, збірки (dist/) або
+        залежності (node_modules/). Це допомагає тримати репозиторій чистим і зберігати тільки важливий вихідний код.</li>
+      <li><a href="https://www.npmjs.com/package/@tailwindcss/postcss" target="_blank">@tailwindcss/postcss</a> - це спеціальний PostCSS-плагін для TailwindCSS (v4). Його призначення — підключити Tailwind до системи PostCSS, щоб Webpack міг обробляти директиви @tailwind base, @tailwind components, @tailwind utilities. Без цього плагіна Tailwind не компілюється у CSS у сучасних
+        версіях</li>
+      <li><a href="https://www.npmjs.com/package/postcss" target="_blank">postcss</a> - це сам движок PostCSS, який виконує обробку CSS-файлів перед тим, як вони потрапляють у браузер. Він дозволяє використовувати плагіни (наприклад, Tailwind або Autoprefixer), щоб автоматично додавати префікси, очищати, мінімізувати або генерувати класи. По суті, postcss — це
+        “мозок”, який запускає всі PostCSS-плагіни у Webpack.</li>
+      <li><a href="https://www.npmjs.com/package/postcss-loader" target="_blank">postcss-loader</a> - це Webpack-лоадер, який дозволяє інтегрувати PostCSS у процес збірки. Він зчитує твій postcss.config.js, підключає всі плагіни (@tailwindcss/postcss, autoprefixer) і пропускає CSS через них перед тим, як передати далі в css-loader. Без postcss-loader Webpack не зміг би
+        “бачити” Tailwind-директиви.</li>
+      <li><a href="https://www.npmjs.com/package/autoprefixer" target="_blank">autoprefixer</a> - це PostCSS-плагін, який автоматично додає вендорні префікси (-webkit-, -moz-, тощо) до CSS-властивостей.</li>
+      <li><a href="https://www.npmjs.com/package/copy-webpack-plugin" target="_blank">copy-webpack-plugin</a> - це плагін для Webpack, який копіює файли або папки з вихідної директорії (наприклад src/assets/) у кінцеву директорію збірки (dist/).</li>
+      <li><a href="https://www.npmjs.com/package/raw-loader" target="_blank">raw-loader</a> - це корисний Webpack-лоадер, який використовується для імпорту вмісту файлів у вигляді звичайного тексту (string).</li>
+    </ol>
+    <p>webpack.config.js</p>
+    <pre><code class="language-js">
+const path = require('path');                                  // Модуль Node.js для роботи з шляхами до файлів
+const HtmlWebpackPlugin = require('html-webpack-plugin');      // Плагін, який автоматично створює HTML з підключеними скриптами
+const CopyWebpackPlugin = require('copy-webpack-plugin');      // Плагін для копіювання файлів/папок у папку збірки
+
+module.exports = {
+  mode: 'development',                                         // Режим збірки: development (зручний для розробки)
+  entry: './src/index.js',                                     // Головний вхідний файл (точка старту)
+  output: {
+    filename: '[name].[contenthash].js',                       // Ім'я файлу збірки з хешем (для кешування)
+    path: path.resolve(__dirname, 'dist'),                     // Абсолютний шлях до папки з результатом збірки
+    clean: true,                                               // Очищає папку dist перед новою збіркою
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',                            // HTML-шаблон, у який вставляться зібрані скрипти
+      filename: 'index.html',                                  // Назва створеного HTML-файлу у dist
+    }),
+    new CopyWebpackPlugin({
+      patterns: [                                              // Шляхи, які потрібно скопіювати під час збірки
+        { from: path.resolve(__dirname, './README.md'), to: 'README.md' },  // Копіює README.md у dist
+        { from: path.resolve(__dirname, 'src/images'), to: 'images' },      // Копіює папку images у dist/images
+      ],
+    }),
+  ],
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'dist'),              // Вказує папку, яку обслуговує сервер
+      watch: true,                                             // Стежить за змінами у файлах dist
+    },
+    devMiddleware: {
+      writeToDisk: true,                                       // Записує файли збірки фізично на диск
+    },
+    port: 8080,                                                // Порт локального сервера (http://localhost:8080)
+    open: true,                                                // Автоматично відкриває сторінку в браузері
+    hot: true,                                                 // Вмикає "гаряче оновлення" (без перезавантаження сторінки)
+  },
+  module: {
+    rules: [                                                   // Набір правил для обробки різних типів файлів
+      {
+        test: /\.s?css$/i,                                     // Підтримка CSS і SCSS файлів
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+                                                               // Послідовність: вставити стилі → імпортувати → PostCSS → SCSS
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,                  // Шрифти
+        type: 'asset/resource',                                // Копіює шрифти у dist і повертає їх URL
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,                       // Зображення
+        type: 'asset',                                         // Визначає: inline чи файл, залежно від розміру
+        parser: { dataUrlCondition: { maxSize: 8 * 1024 } },   // Inline (base64) якщо < 8KB, інакше окремий файл
+      },
+      {
+        test: /\.html$/i,                                      // HTML файли
+        loader: 'html-loader',                                 // Дозволяє імпортувати HTML у JS (шаблони, компоненти)
+      },
+    ],
+  },
+};
+
+</code></pre>
+    <p>index.js</p>
+    <pre>
+      <code class="language-js">
+import './index.html';                     // Імпортує HTML-файл у збірку Webpack (через html-loader)
+import './styles/fonts.scss';              // Імпортує шрифти, оголошені у файлі fonts.scss
+import './styles/style.scss';              // Основні стилі проєкту (SCSS)
+import './styles/tailwind.css';            // Файл створений під Tailwind CSS
+
+import 'prismjs';                          // Основна бібліотека Prism.js для підсвічування коду
+import 'prismjs/themes/prism-okaidia.css'; // Тема оформлення Okaidia для Prism.js
+import 'prismjs/components/prism-css.min.js';        // Додає підтримку підсвічування синтаксису CSS
+import 'prismjs/components/prism-javascript.min.js'; // Додає підтримку підсвічування синтаксису JavaScript</code>
+    </pre>
+    <p>package.json</p>
+    <pre>
+      <code class="language-js">
+{
+  "name": "webpack-basic",                            // Назва проєкту
+  "version": "1.0.0",                                 // Поточна версія
+  "main": "index.js",                                 // Головний файл застосунку (точка входу)
+  "scripts": {                                        // Команди, які можна виконувати через npm run ...
+    "start": "webpack serve",                         // Запускає локальний сервер розробки (webpack-dev-server)
+    "build": "webpack"                                // Збирає проєкт у папку dist
+  },
+  "keywords": [],                                     // Ключові слова для npm (не обов’язково)
+  "author": "",                                       // Автор проєкту
+  "license": "ISC",                                   // Тип ліцензії
+  "description": "",                                  // Короткий опис проєкту
+  "devDependencies": {                                // Залежності, потрібні лише під час розробки
+    "@tailwindcss/postcss": "^4.1.16",                // Плагін для інтеграції Tailwind з PostCSS
+    "autoprefixer": "^10.4.21",                       // Додає вендорні префікси для CSS
+    "copy-webpack-plugin": "^13.0.1",                 // Копіює файли/папки до папки збірки (наприклад, assets)
+    "css-loader": "^7.1.2",                           // Дозволяє імпортувати CSS у JavaScript
+    "html-loader": "^5.1.0",                          // Дозволяє імпортувати HTML-файли як модулі
+    "html-webpack-plugin": "^5.6.4",                  // Генерує HTML із автоматичним підключенням JS/CSS
+    "postcss": "^8.5.6",                              // Інструмент для обробки CSS через плагіни
+    "postcss-loader": "^8.2.0",                       // Завантажувач для інтеграції PostCSS у Webpack
+    "raw-loader": "^4.0.2",                           // Дозволяє імпортувати файли як текст (наприклад .md)
+    "sass": "^1.93.2",                                // Компілятор Sass/SCSS у CSS
+    "sass-loader": "^16.0.6",                         // Додає підтримку SCSS/Sass у Webpack
+    "style-loader": "^4.0.0",                         // Додає стилі у DOM через style теги
+    "tailwindcss": "^4.1.16",                         // CSS-фреймворк утилітарних класів
+    "webpack": "^5.102.1",                            // Основний модуль збірки
+    "webpack-cli": "^6.0.1",                          // Інтерфейс командного рядка для Webpack
+    "webpack-dev-server": "^5.2.2"                    // Сервер розробки з hot reload
+  },
+  "dependencies": {                                   // Основні бібліотеки, потрібні у продакшн-режимі
+    "gitignore": "^0.7.0",                            // Пакет для створення/обробки файлів .gitignore
+    "prismjs": "^1.30.0"                              // Підсвічування синтаксису для HTML/CSS/JS у браузері
+  }
+}</code>
+    </pre>
+  </div>
+</body>
+
+</html>
